@@ -4,9 +4,9 @@
     xmlns:android = "http://schemas.android.com/apk/res/android"
     id        = "cg_restaurants.appeti100.com"
     version   = "1.0.4">
-    <name>Appeti100, application de prise de commande au restaurant</name>
+    <name>Appeti100_resto</name>
     <description>
-        Version pour restaurant
+        Version pour restaurant, application de prise de commande au restaurant
     </description>
     <author email="support@appeti100.com" href="http://www.appeti100.com">
         support@appeti100.com
