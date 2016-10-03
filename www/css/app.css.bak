@@ -58,7 +58,7 @@ color:#00B279;
 
 
 .button.green-btn{
-background:#E84E1B;
+background:#00B279;
 }
 
 .button.blue-btn{
@@ -84,7 +84,7 @@ padding-bottom:25px;
 }
 
 .tab-bar{
-background:#E84E1B;
+background:#00B279;
 }
 .clear{
 clear:both;
