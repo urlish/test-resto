@@ -3,7 +3,7 @@
     xmlns:gap = "http://phonegap.com/ns/1.0"
     xmlns:android = "http://schemas.android.com/apk/res/android"
     id        = "cg_restaurants.appeti100.com"
-    version   = "1.0.4">
+    version   = "1.0.5">
     <name>Appeti100_resto</name>
     <description>
         Version pour restaurant, application de prise de commande au restaurant
@@ -16,23 +16,29 @@
                
 	<preference name="orientation" value="portrait" />
 	<preference name="android-build-tool" value="gradle" />
-	<preference name="permissions" value="none"/>
-	
+		
 	<plugin name="phonegap-plugin-push" source="npm">
     <param name="SENDER_ID" value="651716383412" />
 	</plugin>
 		
 	<gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="phonegap-plugin-push" source="npm" spec="1.5.3" />
-    <gap:plugin name="cordova-plugin-device" />		
-	<gap:plugin name="cordova-plugin-inappbrowser" />		
-	<gap:plugin name="cordova-plugin-splashscreen" />	
-	<gap:plugin name="cordova-plugin-geolocation" />
-	<gap:plugin name="cordova-plugin-network-information" />
+    <gap:plugin name="cordova-plugin-device" source="npm"/>		
+	<gap:plugin name="cordova-plugin-inappbrowser" source="npm"/>		
+	<gap:plugin name="cordova-plugin-splashscreen" source="npm"/>	
+	<gap:plugin name="cordova-plugin-geolocation" source="npm"/>
+	<gap:plugin name="cordova-plugin-network-information" source="npm"/>
 
 	<gap:splash src="splash.png" />
 	<preference name="AutoHideSplashScreen" value="false" />  	
     <preference name="SplashScreenDelay" value="10000" />  
+<gap:plugin name="cordova-plugin-googlemaps"  source="npm"  >
+	   <param name="API_KEY_FOR_ANDROID" value="AIzaSyCMGLQORod-uvQD3Wn5x-cwZmE1_AAstNc" />
+	   <param name="API_KEY_FOR_IOS" value="XXX" />
+	</gap:plugin>
+	<gap:plugin name="cordova-plugin-media" source="npm" />
+	<gap:plugin name="cordova-plugin-x-toast" source="npm" />	
+	<gap:plugin name="cordova-plugin-buildinfo" source="npm" />	
 	
     <access origin="*" />
     <access origin="tel:*" launch-external="yes" />
