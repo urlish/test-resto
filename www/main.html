@@ -637,6 +637,21 @@
         </ons-list-item>
                
       </ons-list>
+      
+      <div class="settings-header trn" data-trn-key="table_booking">Table Booking</div>
+      <ons-list modifier="inset" class="settings-list">        
+      
+       <ons-list-item >
+          <span class="trn" data-trn-key="disabled_table_booking">Disabled Table Booking</span>
+          <ons-switch modifier="list-item" var="merchant_table_booking" name="merchant_table_booking" id="merchant_table_booking" ></ons-switch>
+        </ons-list-item>
+        
+       <ons-list-item >
+          <span class="trn" data-trn-key="accept_booking_sameday">Accept booking same day</span>
+          <ons-switch modifier="list-item" var="accept_booking_sameday" name="accept_booking_sameday" id="accept_booking_sameday" ></ons-switch>
+        </ons-list-item> 
+               
+      </ons-list>
             
    
    <button class="button green-btn button--large trn" onclick="saveSettings();" data-trn-key="save">
@@ -1104,9 +1119,9 @@
 
 
 <script type="text/ons-template" id="assignDriver.html">    
-<ons-page id="page-assignDriver">
+<ons-page id="page-assignDriver" on-device-backbutton="setButtonTask2();" >
    <ons-toolbar>          
-    <div class="left"><ons-back-button></ons-back-button></div>     
+    <div class="left"><ons-back-button onclick="setButtonTask()"></ons-back-button></div>     
     <div class="center white assign-driver-title" >
       
     </div>   

@@ -1,6 +1,6 @@
 /**
 Karenderia Order Taking App
-Version 1.0.6
+Version 1.0.5
 */
 
 /**
@@ -277,7 +277,6 @@ document.addEventListener("pageinit", function(e) {
 		case "page-SearchPopUp":
 		case "page-searchResults":
 		case "page-map":
-		case "page-assignDriver":
 		translatePage();
 		break;
 		
@@ -456,7 +455,7 @@ function callAjax(action,params)
 	 type: 'post',                  
 	 async: false,
 	 dataType: 'jsonp',
-	 timeout: 5000,	 	
+	 timeout: 6000,
 	 crossDomain: true,
 	 beforeSend: function() {
 		if(ajax_request != null) {			 	
@@ -599,18 +598,6 @@ function callAjax(action,params)
 			       	   merchant_enabled_tip.setChecked(true);
 			       } else {
 			       	   merchant_enabled_tip.setChecked(false);
-			       }
-			       
-			       if (data.details.merchant_table_booking=="yes"){
-			       	   merchant_table_booking.setChecked(true);
-			       } else {
-			       	   merchant_table_booking.setChecked(false);
-			       }
-			       
-			       if (data.details.accept_booking_sameday=="2"){
-			       	   accept_booking_sameday.setChecked(true);
-			       } else {
-			       	   accept_booking_sameday.setChecked(false);
 			       }
 			       	       
 			     break;
@@ -937,7 +924,7 @@ function load(done)
 	 type: 'post',                  
 	 async: false,
 	 dataType: 'jsonp',
-	 timeout: 5000,
+	 timeout: 6000,
 	 crossDomain: true,
 	 beforeSend: function() {
 		if(ajax_request != null) {			 	
@@ -1105,9 +1092,9 @@ function getTransactionTypeIcons(trans_type_raw)
 {
 	var icon_trans_type='';
 	if ( trans_type_raw=="delivery"){
-		icon_trans_type='ion-android-car';
+		icon_trans_type='fa-truck';
 	} else {
-		icon_trans_type='ion-android-restaurant';
+		icon_trans_type='ion-ios-briefcase';
 	}
 	return icon_trans_type;
 }
@@ -1262,13 +1249,6 @@ function displayOrderDetails(data)
           
      html+=TPLorderRow( getTrans("TRN Type",'trn_type') ,  data.trans_type);
      html+=TPLorderRow( getTrans("Payment Type",'payment_type') ,  data.payment_type);
-     
-     if( data.payment_type=="PYR" || data.payment_type=="pyr"){
-     	html+=TPLorderRow( getTrans("Card#",'card_number') ,  data.payment_provider_name);
-     }
-     if( data.payment_type=="OCR" || data.payment_type=="ocr"){
-     	html+=TPLorderRow( getTrans("Card#",'card_number') , data.credit_card_number );
-     }
      
      if ( data.trans_type_raw=="delivery"){
         html+=TPLorderRow( getTrans("Delivery Date",'delivery_date') ,  data.delivery_date);     
@@ -1849,7 +1829,7 @@ function displayHistory(data)
 		htm+='<ons-list-item>';
 		   htm+='<ons-row>';
 			htm+='<ons-col class="fixed-col">'+val.date_created+'</ons-col>';
-			htm+='<ons-col class="fixed-col"><span class="status margin2 '+val.status_raw+' " >'+val.status+'</span></ons-col>';
+			htm+='<ons-col class="fixed-col">'+val.status+'</ons-col>';
 			htm+='<ons-col class="fixed-col">'+val.remarks+'</ons-col>';
 		  htm+='</ons-row>';
 		htm+='</ons-list-item>';
@@ -2164,7 +2144,7 @@ function pullNotification(done)
 	 type: 'post',                  
 	 async: false,
 	 dataType: 'jsonp',
-	 timeout: 5000,
+	 timeout: 6000,
 	 crossDomain: true,
 	 beforeSend: function() {
 		if(ajax_request != null) {			 	
@@ -2286,7 +2266,7 @@ function loadTable(done)
 	 type: 'post',                  
 	 async: false,
 	 dataType: 'jsonp',
-	 timeout: 5000,
+	 timeout: 6000,
 	 crossDomain: true,
 	 beforeSend: function() {
 		if(ajax_request != null) {			 	
@@ -2442,9 +2422,8 @@ function displayBookingDetails(data)
 	
 	var html='<ons-list-header class="header">';
         html+='<ons-row>';        
-        //html+='<ons-icon class="icon '+icon.classname+'" icon="'+icon.icons+'"></ons-icon>';
-        //html+='&nbsp;&nbsp;'+data.status
-        html+='<span class="status margin2 '+data.status_raw+' ">'+data.status+'</span>';
+        html+='<ons-icon class="icon '+icon.classname+'" icon="'+icon.icons+'"></ons-icon>';
+        html+='&nbsp;&nbsp;'+data.status
         html+='</ons-row>';
      html+='</ons-list-header>';
      
@@ -2712,7 +2691,6 @@ function showTeamList()
 	       params="mtid="+info.merchant_id;    
 	       callAjax("loadTeamList",params);       
 	       teamListDialog.show();	
-	       translatePage();
 	    });	
 	} else {				
 		var info=getMerchantInfoStorage();		
@@ -2737,7 +2715,6 @@ function showDriverList()
 	       callAjax("driverList",params);       
 	       
 		   driverListDialog.show();
-		   translatePage();
 	    });	
 	} else {		
 		var info=getMerchantInfoStorage();	
@@ -3064,7 +3041,7 @@ function loadBooking(done)
 	 type: 'post',                  
 	 async: false,
 	 dataType: 'jsonp',
-	 timeout: 5000,
+	 timeout: 6000,
 	 crossDomain: true,
 	 beforeSend: function() {
 		if(ajax_request != null) {			 	
