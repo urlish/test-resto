@@ -454,7 +454,7 @@ function callAjax(action,params)
 	 url: ajax_url+"/"+action, 
 	 data: params,
 	 type: 'post',                  
-	 async: false,
+	 async: true,
 	 dataType: 'jsonp',
 	 timeout: 5000,	 	
 	 crossDomain: true,
